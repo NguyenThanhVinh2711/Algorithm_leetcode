@@ -3,25 +3,36 @@ import java.util.Arrays;
 import java.util.List;
 
 public class _27_Remove_Element {
-    public static int removeElement(Integer[] nums, int val) {
-        int n = nums.length;
-        for (int i = 0; i < n; ) {
-            if (nums[i] == val) {
-                // xoa phan tu nums[i]
-                for (int j = i; j <= n - 2; j++) {
-                    nums[j] = nums[j + 1];
-                }
-                n--;
-            } else {
-                i++;
+//    public static int removeElement(Integer[] nums, int val) {
+//        int n = nums.length;
+//        for (int i = 0; i < n; ) {
+//            if (nums[i] == val) {
+//                // xoa phan tu nums[i]
+//                for (int j = i; j <= n - 2; j++) {
+//                    nums[j] = nums[j + 1];
+//                }
+//                n--;
+//            } else {
+//                i++;
+//            }
+//        }
+//        return n;
+//    }
+
+    public static void remove(Integer[] nums , int val){
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                list.add(nums[i]);
             }
         }
-        return n;
+        nums = list.toArray(new Integer[0]);
+        Arrays.toString(nums);
     }
 
     public static void main(String[] args) {
-        Integer[] arr = {3, 2, 2, 3};
-        int remove = 2;
+        Integer[] arr = {3, 2, 1, 4, 2, 2, 3, 2};
+        int remove = 3;
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != remove) {
@@ -30,7 +41,6 @@ public class _27_Remove_Element {
         }
         arr = list.toArray(new Integer[0]);
         System.out.println(Arrays.toString(arr));
-
     }
 //public static void main(String[] args){
 //    Integer[] arr = {3,1,5,6,5};
